@@ -259,18 +259,6 @@ If someone wants to contribute:
 
 ---
 
-## 📄 License
-
-Choose a license that fits your goals (MIT is common for small web apps).
-
-Example:
-
-```md
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
-```
-
----
-
 ## 🙌 Acknowledgements
 
 - Inspired by campus **lost & found** systems and similar open-source projects.  
