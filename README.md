@@ -1,141 +1,290 @@
-# CampusFind - Lost & Found Recovery System
+# CampusFind – Lost & Found Recovery System
 
-CampusFind is a web-based lost and found platform built for campus communities. It helps students report lost items, post found items, search listings, and connect with others to recover belongings quickly and efficiently.
+CampusFind is a single-page **lost & found web application** designed for college campuses.  
+Students can report lost or found items, browse existing reports, and mark items as recovered through a clean, modern UI. [web:120][web:121][web:122]
 
-## Overview
+---
 
-CampusFind simplifies the lost-and-found process through a clean and responsive interface. Users can submit item details, browse reports, apply filters, upload images, and track recovery progress in real time.
+## ✨ Features
 
-## Features
+- **Report lost items** with title, category, date, location, description, and contact information.  
+- **Report found items** so owners can quickly identify and claim their belongings.  
+- **Browse all items** in a responsive card-based grid with images and status chips.  
+- **Search & filter** by keyword, status (lost / found / recovered), category, and sort by date (newest / oldest).  
+- **Item detail view** with full description, metadata, and contact information inside an accessible modal. [web:65][web:120]  
+- **Mark as recovered** to indicate that an item has been returned to its owner.  
+- **LocalStorage persistence** so reports remain even after page refresh.  
+- **Animated statistics** showing total items reported, recovered items, active users (simulated), and recovery rate.  
+- **Modern UI/UX** with gradients, glassmorphism, subtle animations, and responsive layout. [web:61][web:94]  
+- **Accessibility-conscious design** using ARIA roles, labelled modals, keyboard close behavior, and live region toasts. [web:101][web:106][web:107][web:108][web:110][web:114]
 
-- Responsive design for desktop, tablet, and mobile
-- Report lost items with item details, category, location, contact info, and image
-- Report found items to help connect belongings with their owners
-- Smart search and filter options by item name, status, and category
-- Sort items for easier browsing
-- Image upload support for better identification
-- Real-time platform statistics and recovery tracking
-- Local storage support for persistent browser-based data
-- Modern dark-themed interface with smooth animations
-- Direct contact details for easier recovery communication
+---
 
-## Tech Stack
+## 🖼️ Screenshots
 
-| Technology   | Usage                                                  |
-| ------------ | ------------------------------------------------------ |
-| HTML5        | Semantic structure and layout                          |
-| CSS3         | Styling, responsiveness, animations, and dark theme    |
-| JavaScript   | App logic, filtering, item handling, statistics, and local storage |
-| Font Awesome | Icons and UI enhancement                               |
+All screenshots are stored in the `screenshots/` folder in this repository. Using a dedicated screenshots folder is a common GitHub pattern and keeps assets organized. [web:128][web:131][web:134][web:132]
 
-## Language Breakdown
+### 1. Home page
 
-| Language   | Percentage | Purpose                                                  |
-| ---------- | ---------- | -------------------------------------------------------- |
-| JavaScript | 39.4%      | Core logic, item handling, search, filters, and storage |
-| CSS        | 36.5%      | Responsive styling, layout, and animations              |
-| HTML       | 24.1%      | Semantic markup and page structure                      |
+Shows the hero section with search bar, stats, and call‑to‑action buttons.
 
-## Project Structure
+![CampusFind – Home](screenshots/home.png)
+
+### 2. Items list
+
+Displays the filters bar and the responsive grid of lost and found item cards.
+
+![CampusFind – Items List](screenshots/items-list.png)
+
+### 3. Marked item details (Recovered)
+
+Item detail modal for an item that has been marked as **Recovered**.
+
+![CampusFind – Recovered Item Detail](screenshots/detail-recovered.png)
+
+### 4. Found item details
+
+Item detail modal showing an item with **Found** status.
+
+![CampusFind – Found Item Detail](screenshots/detail-found.png)
+
+### 5. Lost item details
+
+Item detail modal showing an item with **Lost** status.
+
+![CampusFind – Lost Item Detail](screenshots/detail-lost.png)
+
+Make sure your actual files are named:
+
+- `screenshots/Home.png`  
+- `screenshots/item-list.png`  
+- `screenshots/detail-1.png`  
+- `screenshots/detail-2.png`  
+- `screenshots/detail-3.png`
+
+If you use `.jpg` or different names, update the paths above accordingly. [web:128][web:131][web:135]
+
+---
+
+## 🚀 Live Demo
+
+Once you enable GitHub Pages for this repository, your live URL will look like this:
+
+```md
+🔗 **Live Demo (GitHub Pages):** https://aviralcodes29.github.io/campusfind-lost-and-found
+```
+
+Hosting a working demo makes the project look far more professional in your portfolio. [web:65][web:120][web:126]
+
+---
+
+## 🏗️ Tech Stack
+
+- **Frontend:** HTML5, modern CSS3 (Flexbox, Grid, custom design system), vanilla JavaScript (no frameworks). [web:91][web:96][web:99]  
+- **State & storage:** Browser `localStorage` for persisting item reports.  
+- **Icons & fonts:** Font Awesome 6, Google Fonts (Inter).  
+- **Architecture:** Single Page Application (SPA-style) with modular JS pattern. [web:91][web:93][web:96][web:99]
+
+---
+
+## 📁 Project Structure
 
 ```bash
 campusfind-lost-and-found/
-├── index.html          # Main application interface
-├── style.css           # Styling and responsive design
-├── script.js           # Application logic and interactions
-├── images/
-│   └── logo.jpg        # Project logo and assets
-└── README.md           # Project documentation
+├─ index.html        # Main single-page UI and sections
+├─ style.css         # Global styles, design tokens, layout & components
+├─ script.js         # Application logic (SPA behavior)
+├─ images/           # Logo and sample item images
+└─ screenshots/      # Project UI screenshots used in README
 ```
 
-## How It Works
+Organizing screenshots in a separate folder and referencing them via relative paths in the README is a recommended practice. [web:128][web:131][web:134][web:132]
 
-1. Users report a lost or found item through a form.
-2. The platform stores and displays submitted reports.
-3. Other users can browse, search, and filter available listings.
-4. When an item is identified, users can contact the reporter directly.
-5. Recovered items can be marked accordingly, updating overall statistics.
+---
 
-## Getting Started
+## ⚙️ Getting Started
 
-### Prerequisites
+These steps assume you have **Git** and a modern web browser installed. [web:123][web:126][web:137]
 
-- A modern web browser such as Chrome, Firefox, Edge, or Safari
-- No external dependencies or package installation required
-
-### Installation
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/aviralcodes29/campusfind-lost-and-found.git
+git clone https://github.com/Aviralcodes29/campusfind-lost-and-found.git
 cd campusfind-lost-and-found
 ```
 
-### Run the Project
+### 2. Open in your browser
 
-Open `index.html` directly in your browser.
+You can open the project in two ways:
 
-For a better local development experience, you can run a simple local server:
+- **Option A – Directly from file system**  
+  Simply double-click `index.html` or open it using:
 
-```bash
-python -m http.server 8000
+  ```bash
+  # macOS / Linux:
+  open index.html
+
+  # Windows:
+  start index.html
+  ```
+
+- **Option B – Run a local dev server (recommended)**  
+  Using VS Code Live Server, Python, or any static server for correct paths and caching.
+
+  ```bash
+  # Example using Python 3
+  python -m http.server 8000
+
+  # Then open:
+  # http://localhost:8000
+  ```
+
+---
+
+## 🔎 Usage
+
+### Report a lost item
+
+1. Click **“Report Lost”** in the navbar.  
+2. Fill in the **item name**, **category**, **date**, **location**, **description**, and **contact** fields.  
+3. Optionally upload an **image** of the item.  
+4. Click **“Submit Lost Report”**.  
+5. The item appears at the top of the list with status **Lost** and is saved in `localStorage`. [web:65][web:120]
+
+### Report a found item
+
+1. Click **“Report Found”** in the navbar.  
+2. Fill in similar details for the found item.  
+3. Submit the form. The item appears with status **Found**.
+
+### Search, filter, and sort items
+
+- Use the **search bar** to filter items by name, description, location, or category.  
+- Use **status filter**: All / Lost / Found / Recovered.  
+- Use **category filter**: Electronics, Accessories, Documents, Clothing, Bags, Keys, Bottles, Other.  
+- Use **sort**: Newest first or Oldest first.
+
+### View item details and mark recovered
+
+1. Click on any item card to open the **detail modal**.  
+2. See full description, location, date, category, and **contact information**.  
+3. If the item is not yet recovered, click **“Mark as Recovered”**.  
+4. The item’s status changes to **Recovered**, the statistics update, and a success toast appears.
+
+---
+
+## 🧱 Code Architecture
+
+CampusFind is implemented as a **modular vanilla JavaScript app** using an IIFE pattern (`CampusFindApp`) to keep the global scope clean. This follows patterns recommended for small, framework-free web apps. [web:91][web:93][web:96][web:99]
+
+### JavaScript (`script.js`)
+
+- Encapsulated in:
+
+  ```js
+  const CampusFindApp = (() => {
+    // state, DOM cache, functions
+
+    return {
+      init,
+      filterItems,
+      openModal,
+      closeModal,
+      openDetail,
+      searchFromHero,
+      quickSearch,
+      submitReport,
+      previewImage,
+      markAsRecovered
+    };
+  })();
+
+  document.addEventListener('DOMContentLoaded', CampusFindApp.init);
+  ```
+
+- **Core responsibilities:**
+  - Seed **sample items** and hydrate from `localStorage`.  
+  - Manage **state** (`items`, `nextId`) and `STORAGE_KEY`.  
+  - Render cards in the **items grid** using `renderItems()`.  
+  - Handle **filters** (search, category, status, sort) in `filterItems()`.  
+  - Control **modals** (`openModal`, `closeModal`) with focus handling, ESC key, and overlay click close. [web:106][web:107][web:108][web:110]  
+  - Implement **hero search** and **quick search tags** (Phone, Wallet, Keys, etc.).  
+  - Show **toast notifications** through an ARIA live region for accessibility. [web:111][web:114]  
+  - Animate **stats counters** and **scroll-in elements**.
+
+### HTML (`index.html`)
+
+- Structured as a single page with sections:
+  - `nav` – sticky navbar with logo, links, and primary actions.  
+  - `#home` – hero section with search, popular tags, and illustration.  
+  - `#stats` – animated stats cards.  
+  - `#how-it-works` – 3-step explanation.  
+  - `#items` – filters toolbar + items grid.  
+  - Modals: **lost report**, **found report**, **item detail** (with ARIA attributes and proper labelling).  
+  - `footer` – quick links and contact information.
+
+### CSS (`style.css`)
+
+- Built as a small **design system** with:
+  - Color tokens (primary, accent, semantic: lost/found/recovered).  
+  - Typography scale (`--font-size-*`).  
+  - Spacing, radius, shadow, and gradient variables.  
+- Uses **Flexbox and CSS Grid** for layout.  
+- Includes **responsive breakpoints** at 1024px, 768px, and 480px.  
+- Implements **glassmorphism**, **gradient cards**, and subtle **hover and scroll animations**. [web:61][web:94]
+
+---
+
+## 🧪 Future Improvements
+
+Some ideas for extending this project:
+
+- Connect to a **real backend** (Node.js, Firebase, or Supabase) for multi-user data. [web:119][web:121][web:122]  
+- Implement **user accounts and authentication** so each user can manage their own reports. [web:8][web:121][web:122]  
+- Add **image compression** before upload for better performance.  
+- Integrate **email or WhatsApp notifications** when a potential match is found.  
+- Add **admin dashboard** for campus staff to verify and moderate reports.
+
+---
+
+## 🤝 Contributing
+
+If someone wants to contribute:
+
+1. **Fork** the repository.  
+2. Create a new branch:
+
+   ```bash
+   git checkout -b feature/my-new-feature
+   ```
+
+3. Commit your changes:
+
+   ```bash
+   git commit -m "Add my new feature"
+   ```
+
+4. Push to your fork and open a **Pull Request**. [web:65][web:121][web:123][web:126]
+
+---
+
+## 📄 License
+
+Choose a license that fits your goals (MIT is common for small web apps). [web:123][web:126][web:127]
+
+Example:
+
+```md
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 ```
 
-Then open:
+---
 
-```bash
-http://localhost:8000
-```
+## 🙌 Acknowledgements
 
-## Use Cases
+- Inspired by campus **lost & found** systems and similar open-source projects. [web:65][web:120][web:121][web:122]  
+- UI patterns influenced by modern **single-page web apps** and accessibility guidelines. [web:61][web:94][web:101][web:106][web:107][web:108][web:110][web:114]
 
-CampusFind is useful for reporting and recovering common campus items such as:
+---
 
-- ID cards
-- Wallets
-- Keys
-- Mobile phones
-- Bags
-- Notebooks
-- Water bottles
-- Earphones and chargers
-
-## Highlights
-
-- Easy-to-use interface for quick reporting
-- Community-driven recovery workflow
-- Browser-based storage with no backend setup required
-- Suitable for student projects, demonstrations, and portfolio showcases
-
-## Future Improvements
-
-- Backend and database integration
-- User authentication and role-based access
-- Email notifications for matches
-- AI-based item matching suggestions
-- Admin panel for campus authorities
-- Cloud image storage and report syncing
-
-## Contributing
-
-Contributions are welcome.
-
-You can help by:
-
-- Reporting bugs
-- Suggesting improvements
-- Opening issues
-- Submitting pull requests
-
-## License
-
-This project is open source and intended for educational purposes.
-
-## Author
-
-**Aviral Singh**
-
-- GitHub: [@aviralcodes29](https://github.com/aviralcodes29)
-
-## Support
-
-If you encounter an issue, please open an issue in the GitHub repository.
+> Built by **Aviral Singh** ([Aviralcodes29](https://github.com/Aviralcodes29)) as a college project and portfolio piece.
