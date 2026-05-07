@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusFind - Lost & Found Recovery System</title>
+  <meta name="description" content="Report and recover lost items on your college campus. Fast, easy, and community-driven lost and found system.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <img src="images/logo.jpg" alt="CampusFind logo" class="nav-logo-img">
+        <span class="nav-logo-text">
+          Campus<span class="logo-accent">Find</span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#items">Browse Items</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#stats">Statistics</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-outline-light" onclick="CampusFindApp.openModal('reportLostModal')">
+          <i class="fas fa-exclamation-circle"></i> Report Lost
+        </button>
+        <button class="btn btn-primary-glow" onclick="CampusFindApp.openModal('reportFoundModal')">
+          <i class="fas fa-hand-holding-heart"></i> Report Found
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-particles" id="particles"></div>
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-shield-alt"></i> Trusted by 2,000+ Students
+      </div>
+      <h1 class="hero-title">
+        Lost Something on Campus?<br>
+        <span class="gradient-text">We'll Help You Find It.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Our community-driven platform connects people who've lost items with those who've found them. 
+        Report, search, and recover your belongings with ease.
+      </p>
+      <div class="hero-search">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="heroSearch" placeholder="Search for your lost item (e.g., blue backpack, iPhone, keys...)" autocomplete="off">
+          <button class="btn btn-primary-glow" onclick="CampusFindApp.searchFromHero()">Search</button>
+        </div>
+      </div>
+      <div class="hero-tags">
+        <span>Popular:</span>
+        <button type="button" onclick="CampusFindApp.quickSearch('phone')">Phone</button>
+        <button type="button" onclick="CampusFindApp.quickSearch('wallet')">Wallet</button>
+        <button type="button" onclick="CampusFindApp.quickSearch('keys')">Keys</button>
+        <button type="button" onclick="CampusFindApp.quickSearch('bottle')">Water Bottle</button>
+        <button type="button" onclick="CampusFindApp.quickSearch('headphones')">Headphones</button>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="images/logo.jpg" alt="Campus lost and found illustration" class="hero-image" loading="eager">
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section" id="stats" aria-label="Platform statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-box-open"></i></div>
+          <div class="stat-number" data-target="156">0</div>
+          <div class="stat-label">Items Reported</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="stat-number" data-target="89">0</div>
+          <div class="stat-label">Items Recovered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-number" data-target="2034">0</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+          <div class="stat-number" data-target="57">0</div>
+          <div class="stat-label">Recovery Rate %</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Simple Process</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Recovering your lost belongings is just three easy steps away</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon"><i class="fas fa-edit"></i></div>
+          <h3>Report</h3>
+          <p>Lost or found an item? Fill out a quick report with details like description, location, and date.</p>
+        </div>
+        <div class="step-connector" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon"><i class="fas fa-search"></i></div>
+          <h3>Match</h3>
+          <p>Our system matches lost items with found ones. Browse listings or use our smart search to find yours.</p>
+        </div>
+        <div class="step-connector" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Recover</h3>
+          <p>Connect with the finder, verify ownership, and get your item back. It's that simple!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Items Browse Section -->
+  <section class="items-section" id="items" aria-label="Lost and found items">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Browse</span>
+        <h2 class="section-title">Lost & Found Items</h2>
+        <p class="section-subtitle">Search through reported items or post your own</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-bar">
+        <div class="filter-group">
+          <div class="search-filter">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search items..." oninput="CampusFindApp.filterItems()" aria-label="Search items">
+          </div>
+        </div>
+        <div class="filter-group">
+          <select id="statusFilter" onchange="CampusFindApp.filterItems()" aria-label="Filter by status">
+            <option value="all">All Status</option>
+            <option value="lost">Lost Items</option>
+            <option value="found">Found Items</option>
+            <option value="recovered">Recovered</option>
+          </select>
+          <select id="categoryFilter" onchange="CampusFindApp.filterItems()" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="accessories">Accessories</option>
+            <option value="documents">Documents</option>
+            <option value="clothing">Clothing</option>
+            <option value="bags">Bags & Luggage</option>
+            <option value="keys">Keys</option>
+            <option value="bottles">Bottles & Containers</option>
+            <option value="other">Other</option>
+          </select>
+          <select id="sortFilter" onchange="CampusFindApp.filterItems()" aria-label="Sort items">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Items Grid -->
+      <div class="items-grid" id="itemsGrid">
+        <!-- Items will be populated by JavaScript -->
+      </div>
+
+      <div class="no-results" id="noResults" style="display:none;">
+        <i class="fas fa-search"></i>
+        <h3>No items found</h3>
+        <p>Try adjusting your search or filters</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Report Lost Modal -->
+  <div class="modal-overlay" id="reportLostModal" role="dialog" aria-modal="true" aria-labelledby="lostModalTitle">
+    <div class="modal">
+      <div class="modal-header modal-header-lost">
+        <h2 id="lostModalTitle"><i class="fas fa-exclamation-circle"></i> Report Lost Item</h2>
+        <button class="modal-close" onclick="CampusFindApp.closeModal('reportLostModal')" aria-label="Close lost item form">&times;</button>
+      </div>
+      <form class="modal-body" id="lostForm" onsubmit="CampusFindApp.submitReport(event, 'lost')">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lostItemName">Item Name *</label>
+            <input type="text" id="lostItemName" name="itemName" required placeholder="e.g., Blue Backpack">
+          </div>
+          <div class="form-group">
+            <label for="lostCategory">Category *</label>
+            <select id="lostCategory" name="category" required>
+              <option value="">Select category</option>
+              <option value="electronics">Electronics</option>
+              <option value="accessories">Accessories</option>
+              <option value="documents">Documents</option>
+              <option value="clothing">Clothing</option>
+              <option value="bags">Bags & Luggage</option>
+              <option value="keys">Keys</option>
+              <option value="bottles">Bottles & Containers</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lostDate">Date Lost *</label>
+            <input type="date" id="lostDate" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="lostLocation">Location *</label>
+            <input type="text" id="lostLocation" name="location" required placeholder="e.g., Library, Block A">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lostDescription">Description *</label>
+          <textarea id="lostDescription" name="description" required placeholder="Provide detailed description - color, brand, distinguishing features..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lostContactName">Your Name *</label>
+            <input type="text" id="lostContactName" name="contactName" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="lostContact">Contact (Email/Phone) *</label>
+            <input type="text" id="lostContact" name="contact" required placeholder="email or phone number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Upload Image (optional)</label>
+          <div class="file-upload" onclick="this.querySelector('input').click()">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Click to upload an image</p>
+            <input type="file" name="image" accept="image/*" onchange="CampusFindApp.previewImage(this)" hidden>
+          </div>
+          <div class="image-preview" id="lostImagePreview"></div>
+        </div>
+        <button type="submit" class="btn btn-lost-submit">
+          <i class="fas fa-paper-plane"></i> Submit Lost Report
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Report Found Modal -->
+  <div class="modal-overlay" id="reportFoundModal" role="dialog" aria-modal="true" aria-labelledby="foundModalTitle">
+    <div class="modal">
+      <div class="modal-header modal-header-found">
+        <h2 id="foundModalTitle"><i class="fas fa-hand-holding-heart"></i> Report Found Item</h2>
+        <button class="modal-close" onclick="CampusFindApp.closeModal('reportFoundModal')" aria-label="Close found item form">&times;</button>
+      </div>
+      <form class="modal-body" id="foundForm" onsubmit="CampusFindApp.submitReport(event, 'found')">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="foundItemName">Item Name *</label>
+            <input type="text" id="foundItemName" name="itemName" required placeholder="e.g., Black Wallet">
+          </div>
+          <div class="form-group">
+            <label for="foundCategory">Category *</label>
+            <select id="foundCategory" name="category" required>
+              <option value="">Select category</option>
+              <option value="electronics">Electronics</option>
+              <option value="accessories">Accessories</option>
+              <option value="documents">Documents</option>
+              <option value="clothing">Clothing</option>
+              <option value="bags">Bags & Luggage</option>
+              <option value="keys">Keys</option>
+              <option value="bottles">Bottles & Containers</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="foundDate">Date Found *</label>
+            <input type="date" id="foundDate" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="foundLocation">Location Found *</label>
+            <input type="text" id="foundLocation" name="location" required placeholder="e.g., Cafeteria, Ground Floor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="foundDescription">Description *</label>
+          <textarea id="foundDescription" name="description" required placeholder="Describe the item you found - color, brand, condition..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="foundContactName">Your Name *</label>
+            <input type="text" id="foundContactName" name="contactName" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="foundContact">Contact (Email/Phone) *</label>
+            <input type="text" id="foundContact" name="contact" required placeholder="email or phone number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Upload Image (optional)</label>
+          <div class="file-upload" onclick="this.querySelector('input').click()">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Click to upload an image</p>
+            <input type="file" name="image" accept="image/*" onchange="CampusFindApp.previewImage(this)" hidden>
+          </div>
+          <div class="image-preview" id="foundImagePreview"></div>
+        </div>
+        <button type="submit" class="btn btn-found-submit">
+          <i class="fas fa-paper-plane"></i> Submit Found Report
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Item Detail Modal -->
+  <div class="modal-overlay" id="itemDetailModal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+    <div class="modal modal-detail">
+      <button class="modal-close" onclick="CampusFindApp.closeModal('itemDetailModal')" aria-label="Close item details">&times;</button>
+      <div class="detail-content" id="detailContent">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <img src="images/logo.jpg" alt="CampusFind logo" class="nav-logo-img">
+            <span class="nav-logo-text">
+              Campus<span class="logo-accent">Find</span>
+            </span>
+          </a>
+          <p>Helping students reunite with their lost belongings. A community-driven lost and found system built for our campus.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#items">Browse Items</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#stats">Statistics</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Actions</h4>
+          <a href="#" onclick="CampusFindApp.openModal('reportLostModal')">Report Lost Item</a>
+          <a href="#" onclick="CampusFindApp.openModal('reportFoundModal')">Report Found Item</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <p><i class="fas fa-envelope"></i> lostandfound@campus.edu</p>
+          <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fas fa-map-marker-alt"></i> Admin Block, Room 102</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Made with <i class="fas fa-heart"></i> for our College Campus | CampusFind &copy; 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
